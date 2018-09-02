@@ -2,14 +2,18 @@
 
 Web user interface for [jrnl](http://jrnl.sh).
 
-## CSS framework
+## Development
 
-Current : https://www.knacss.com/
+### CSS framework
 
-## JS calendar
+Current : [knacss](https://www.knacss.com/)
 
-Current : https://github.com/vanilla-calendar/vanilla-calendar
+### JS calendar
+
+Current : [vanilla-calendar](https://github.com/vanilla-calendar/vanilla-calendar)
 
 Potential :
-* https://github.com/DHTMLX/scheduler
-* https://github.com/fullcalendar/fullcalendar
+* [DHTMLX scheduler](https://github.com/DHTMLX/scheduler)
+* [fullcalendar](https://github.com/fullcalendar/fullcalendar)
+
+## 
