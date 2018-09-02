@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %} | web-jrnl</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/vanillaCalendar.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/knacss.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>{% block header %}{% endblock %}</h1>
+    </header>
+    <main>
+      {% block main %}{% endblock %}
+    </main>
+    <footer class="pas">
+      <a href="https://github.com/Starfight">@Starfight</a>
+    </footer>
+  </body>
+</html>
