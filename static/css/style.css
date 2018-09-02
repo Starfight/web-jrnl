@@ -1,2 +1,5 @@
+/** header */
+header { border-bottom: 3px dashed #acb3c2; }
+
 /* footer */
-footer { position: fixed; bottom: 0;}
+footer { position: fixed; bottom: 0; }
