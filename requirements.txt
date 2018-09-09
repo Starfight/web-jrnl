@@ -1,3 +1,4 @@
 jrnl
 Flask
 Flask-Script
+Flask-restful
