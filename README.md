@@ -16,4 +16,8 @@ Potential :
 * [DHTMLX scheduler](https://github.com/DHTMLX/scheduler)
 * [fullcalendar](https://github.com/fullcalendar/fullcalendar)
 
-## 
+## JS Ajax
+
+Potential :
+* https://github.com/ForbesLindesay/ajax
+* https://github.com/yanatan16/nanoajax
