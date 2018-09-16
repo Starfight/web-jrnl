@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from flask import render_template, Blueprint
 
-bp = Blueprint('index', __name__)
+BP = Blueprint('index', __name__)
 
 
-@bp.route("/")
+@BP.route("/")
 def index():
     return render_template('index.html')
