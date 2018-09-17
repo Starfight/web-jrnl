@@ -3,10 +3,7 @@ import os
 from datetime import datetime
 from flask import Blueprint, jsonify
 from flask_restful import Api, Resource, abort
-from jrnl.cli import CONFIG_PATH
-from jrnl.Journal import Journal
-from jrnl.util import load_and_fix_json
-from webjrnl.utils import convert_to_datetime
+from webjrnl.utils import convert_to_datetime, get_journal
 
 BP = Blueprint('api', __name__, url_prefix='/api')
 API = Api(BP)
@@ -33,10 +30,7 @@ class EntriesApi(Resource):
         except ValueError as e:
             abort(422, message="Error: %s" % str(e))
         # open journal
-        config = load_and_fix_json(CONFIG_PATH)
-        default_path = config['journals'].get('default')
-        config['journal'] = os.path.expanduser(os.path.expandvars(default_path))
-        default_journal = Journal('default', **config)
+        default_journal = get_journal('default')
         # search entries
         default_journal.filter(start_date=date_start.isoformat(),
                                end_date=date_end.isoformat())
