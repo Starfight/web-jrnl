@@ -7,13 +7,13 @@ from jrnl.Journal import Journal
 from jrnl.util import load_and_fix_json
 
 
-def convert_to_datetime(timestamp):
+def convert_to_datetime(isodate):
     """
     Convert timestamp to datetime
-    :param timestamp: int
+    :param isodate: str date ISO-8601
     :return: datetime
     """
-    return datetime.fromtimestamp(timestamp)
+    return datetime.strptime(isodate, "%Y-%m-%dT%H:%M:%S")
 
 
 def get_journal(name):
