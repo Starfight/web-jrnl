@@ -30,7 +30,21 @@
       <div class="vcal-body" data-calendar-area="month"></div>
     </div>
     <script src="{{ url_for('static', filename='js/vanillaCalendar.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/functions.js') }}" type="text/javascript"></script>
     <script>
+    vanillaCalendar.dateClicked = function () {
+      var _this = this
+      this.activeDates = document.querySelectorAll(
+        '[data-calendar-status="active"]'
+      );
+      for (var i = 0; i < this.activeDates.length; i++) {
+        this.activeDates[i].addEventListener('click', function (event) {
+          updateEntries(entriesList, this.dataset.calendarDate);
+          _this.removeActiveClass();
+          this.classList.add('vcal-date--selected');
+        })
+      }
+    };
     window.addEventListener('load', function () {
       vanillaCalendar.init({
         disablePastDays: false
@@ -48,13 +62,7 @@
              <span class="title"></span></h3><p class="body"></p></li>`
     };
     var entriesList = new List('entries-list', options);
-
-    nanoajax.ajax({url: '/api/entries', method: 'GET'}, function (code, responseText, request) {
-      if (code == 200) {
-        entriesList.clear();
-        entriesList.add(JSON.parse(responseText).entries);
-      }
-    })
+    updateEntries(entriesList);
   </script>
 </div>
 {% endblock %}

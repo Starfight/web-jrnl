@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
-from datetime import datetime
+from dateutil.parser import *
 
 from jrnl.cli import CONFIG_PATH
 from jrnl.Journal import Journal
@@ -13,7 +13,7 @@ def convert_to_datetime(isodate):
     :param isodate: str date ISO-8601
     :return: datetime
     """
-    return datetime.strptime(isodate, "%Y-%m-%dT%H:%M:%S")
+    return parse(isodate)
 
 
 def get_journal(name):

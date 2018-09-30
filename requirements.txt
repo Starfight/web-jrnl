@@ -2,3 +2,4 @@ jrnl
 Flask
 Flask-Script
 Flask-restful
+python-dateutil
