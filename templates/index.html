@@ -38,6 +38,23 @@
     })
     </script>
   </aside>
-  <div class="w66 pal"></div>
+  <div class="w66 pal" id="entries-list"><ul class="list"></ul></div>
+  <script src="{{ url_for('static', filename='js/nanoajax.min.js') }}" type="text/javascript"></script>
+  <script src="{{ url_for('static', filename='js/list.min.js') }}" type="text/javascript"></script>
+  <script>
+    var options = {
+      valueNames: [ 'date', 'body', 'time', 'starred', 'title' ],
+      item: `<li><h3><span class="date"></span> at <span class="time"></span>:
+             <span class="title"></span></h3><p class="body"></p></li>`
+    };
+    var entriesList = new List('entries-list', options);
+
+    nanoajax.ajax({url: '/api/entries', method: 'GET'}, function (code, responseText, request) {
+      if (code == 200) {
+        entriesList.clear();
+        entriesList.add(JSON.parse(responseText).entries);
+      }
+    })
+  </script>
 </div>
 {% endblock %}
